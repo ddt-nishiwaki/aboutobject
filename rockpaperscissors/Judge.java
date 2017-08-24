@@ -25,7 +25,7 @@ public class Judge {
 	// 「パー」を示す文字列です
 	private static final String STRING_OF_PAPER = "パー";
 	// プレーヤーが勝った際のメッセージフォーマットです
-	private static final String FORMAT_WINNER_PLAYER = "%sが勝ちました\n";
+	private static final String FORMAT_WINNER_PLAYER = "%sが勝ちました\n\n";
 	// 引き分けの際のメッセージです
 	private static final String MESSAGE_DRAW = "引き分けです\n";
 	// ゲーム回数のカウンター初期値です

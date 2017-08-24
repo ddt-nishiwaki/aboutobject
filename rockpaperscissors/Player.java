@@ -17,11 +17,11 @@ public class Player {
 		じゃんけんの手を表す定数
 	/****************************/
 	// グーを表す値です
-	private static final int NUMBER_OF_ROCK = 0;
+	public static final int NUMBER_OF_ROCK = 0;
 	// チョキを表す値です
-	private static final int NUMBER_OF_SCISSORS = 1;
+	public static final int NUMBER_OF_SCISSORS = 1;
 	// パーを表す値です
-	private static final int NUMBER_OF_PAPER = 2;
+	public static final int NUMBER_OF_PAPER = 2;
 	
 	/****************************
 		プレイヤークラスの属性
