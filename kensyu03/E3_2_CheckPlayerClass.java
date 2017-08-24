@@ -21,6 +21,9 @@ public class E3_2_CheckPlayerClass {
 	**************************/
 	// プレイヤーに与える勝利判定です
 	private static final boolean DECISION_WIN = true;
+	// テストプレーヤーの名前です
+	private static final String TEST_PLAYER_NAME = "テストプレーヤー";
+	
 	
 	/*
 	 * プレーヤクラスに設定した以下のメソッドを確認します
@@ -31,7 +34,7 @@ public class E3_2_CheckPlayerClass {
 	 */
 	public static void main(String[] arg){
 		// テストプレーヤを作成します
-		Player testPlayer = new Player();
+		Player testPlayer = new Player(TEST_PLAYER_NAME);
 
 		// プレーヤーの手を確認する際のメッセージを出力します
 		System.out.println(MESSAGE_CHECK_PLAYER_HAND);

@@ -7,11 +7,11 @@ package rockpaperscissors;
  */
 public class Player {
 	// 「グー」を示す文字列です
-	private static final String STRING_OF_ROCK = "グー";
+	public static final String STRING_OF_ROCK = "グー";
 	// 「チョキ」を示す文字列です
-	private static final String STRING_OF_SCISSORS = "チョキ";
+	public static final String STRING_OF_SCISSORS = "チョキ";
 	// 「パー」を示す文字列です
-	private static final String STRING_OF_PAPER = "パー";
+	public static final String STRING_OF_PAPER = "パー";
 
 	/****************************
 		じゃんけんの手を表す定数
@@ -32,6 +32,13 @@ public class Player {
 	private int winCount_;
 
 	/****************************
+		コンストラクタ
+	/****************************/
+	public Player(String name){
+		name_ = name;
+	}
+	
+	/****************************
 		プレイヤークラスの操作
 	/****************************/
 	/**
@@ -51,18 +58,12 @@ public class Player {
 		if( handDecider < 1 ){
 			// プレーヤーの手をグーに設定する
 			playerHand = NUMBER_OF_ROCK;
-			// プレーヤーの手を確認のため出力する
-			System.out.print(STRING_OF_ROCK);
 		} else if ( handDecider < 2 ){
 			// プレーヤーの手をチョキに設定する
 			playerHand = NUMBER_OF_SCISSORS;
-			// プレーヤーの手を確認のため出力する
-			System.out.print(STRING_OF_SCISSORS);
 		} else if ( handDecider < 3 ){
 			// プレーヤーの手をパーに設定する
 			playerHand = NUMBER_OF_PAPER;
-			// プレーヤーの手を確認のため出力する
-			System.out.print(STRING_OF_PAPER);
 		}
 		// 設定した手を返す
 		return playerHand;
@@ -95,5 +96,13 @@ public class Player {
 		 */
 		// 勝った回数を返す
 		return winCount_;
+	}
+	/*
+	 * 自分の名前を答える
+	 * 
+	 * @return 自分の名前
+	 */
+	public String getName(){
+		return name_;
 	}
 }
