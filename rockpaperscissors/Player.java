@@ -1,5 +1,7 @@
 package rockpaperscissors;
 
+import rockpaperscissors.Tactics;
+
 /**
  * じゃんけんのプレイヤーを表すクラス。
  * 
@@ -30,6 +32,8 @@ public class Player {
 	private String name_;
 	// プレイヤーの勝った回数属性です
 	private int winCount_;
+	// プレーヤーの戦略です
+	private Tactics tactics_;
 
 	/****************************
 		コンストラクタ
@@ -47,26 +51,10 @@ public class Player {
 	 * @return ジャンケンの手
 	 */
 	public int showHand(){
-		/*
-		 * 回答1
-		 */
-		// 手の値を設定する変数です
-		int playerHand = 0;
-		// 手を決定するために0以上3未満の少数として乱数を得る
-		double handDecider = Math.random() * 3;
-		// グーと判定して処理を行う
-		if( handDecider < 1 ){
-			// プレーヤーの手をグーに設定する
-			playerHand = NUMBER_OF_ROCK;
-		} else if ( handDecider < 2 ){
-			// プレーヤーの手をチョキに設定する
-			playerHand = NUMBER_OF_SCISSORS;
-		} else if ( handDecider < 3 ){
-			// プレーヤーの手をパーに設定する
-			playerHand = NUMBER_OF_PAPER;
-		}
-		// 設定した手を返す
-		return playerHand;
+		// 与えられた戦略を読んでジャンケンの手を決める
+		int hand = tactics_.readTactics();
+		// 決定した手を戻りとして返す
+		return hand;
 	}
 	
 	/**
@@ -75,9 +63,6 @@ public class Player {
 	 * @param result true:勝ち,false:負け
 	 */
 	public void notifyResult(boolean result){
-		/*
-		 * 回答2
-		 */
 		// 勝ちだった場合
 		if(result == true){
 			//勝った回数を1カウントする
@@ -91,9 +76,6 @@ public class Player {
 	 * @return 勝った回数
 	 */
 	public int getWinCount(){
-		/*
-		 * 回答3
-		 */
 		// 勝った回数を返す
 		return winCount_;
 	}
@@ -104,5 +86,13 @@ public class Player {
 	 */
 	public String getName(){
 		return name_;
+	}
+	/**
+	 * プレイヤーに戦略を渡す
+	 * 
+	 * @param tactics 戦略
+	 */
+	public void setTactics(Tactics tactics){
+		tactics_ = tactics;
 	}
 }
