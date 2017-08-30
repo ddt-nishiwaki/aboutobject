@@ -20,6 +20,4 @@ public interface Table {
 	 * @return 置かれた各カードの文字列表現
 	 */
 	public Card[][] getCards();
-
-
 }

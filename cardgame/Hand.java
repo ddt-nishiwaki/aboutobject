@@ -11,8 +11,11 @@ public class Hand {
 	/*****************************************
 		定数
 	******************************************/
+	// 配列の最初のインデックスを示す値です
 	private static int START_INDEX = 0;
+	// カードがないことを示す値です
 	private static int NOT_IS_CARD = 0;
+	// 表示を調整するための区切りスペースです
 	private static String DELIMITER_SPACE = " ";
 	/*****************************************
 		メンバ変数
@@ -42,8 +45,10 @@ public class Hand {
 		Card lookingCard = null;
 		// 引数で指定された位置が妥当かチェックします
 		if( ( START_INDEX <= position ) && ( position < mHand.size() ) ){
+			// みるためのカードを設定します
 			lookingCard = (Card)mHand.get(position);
 		}
+		// 設定したカードを返します
 		return lookingCard;
 	}
 	/**
@@ -77,7 +82,7 @@ public class Hand {
 		// カードをシャッフルするために全てのカードにたいして処理を行う
 		for(int cardCount = START_INDEX; cardCount < numberOfCards; cardCount++){
 			// ランダムな位置を設定します
-			position = (int) (Math.random() + numberOfCards);
+			position = (int) (Math.random() * numberOfCards);
 			// 設定した位置のカードを抜き取る
 			Card pickedCard = (Card)mHand.remove(position);
 			// 抜き取ったカードを最後に加える
@@ -104,6 +109,7 @@ public class Hand {
 		int size = mHand.size();
 		// カードを持っている場合の処理を行う
 		if(size > NOT_IS_CARD){
+			// 全てのカードを確認して出力用の表現に設定していきます
 			for(int cardCount = START_INDEX; cardCount <  size; cardCount++){
 				// 各カードを対象とします
 				Card eachCard = (Card)mHand.get(cardCount);
@@ -113,7 +119,7 @@ public class Hand {
 				string.append(DELIMITER_SPACE);
 			}
 		}
+		// 手札の出力用表現を返します
 		return string.toString();
 	}
-
 }

@@ -17,5 +17,5 @@ public interface Rule {
 	 * @praram table テーブル
 	 * @return 見つかったカードの組み合わせ。ない場合はNULL
 	 */
-	public Card[] findCandidate(Hand hand, Table table );
+	public Card[] findCandidateCard(Hand hand, Table table );
 }

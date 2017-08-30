@@ -2,7 +2,6 @@ package cardgame;
 
 import java.util.ArrayList;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
 
 /**
  * カードゲームの進行役です
@@ -16,14 +15,21 @@ public class Master {
 	/*****************************************
 		定数
 	******************************************/
-
+	// カードを配る際のメッセージです
 	private static final String MESSAGE_PREPARE_GAME = "【カードを配ります】";
+	// ゲームを開始する際のメッセージです
 	private static final String MESSAGE_START_GAME = "\n【ゲームを開始します】";
+	// ゲームを終了する際のメッセージです
 	private static final String MESSAGE_END_GAME = "【ゲームを終了しました】";
+	// プレーヤーが上がりを宣言する際のメッセージフォーマットです
 	private static final String FORMAT_OUTPUT_WINNER = "%sさんが上がりました!\n";
+	// 負けたプレーヤーを宣言する際のメッセージフォーマットです
 	private static final String FORMAT_OUTPUT_LOSER = "%sさんの負けです!\n";
+	// 配列の最初のインデックスです
 	private static final int START_INDEX = 0;
+	// 最後のプレイヤーの人数です
 	private static final int NUMBER_OF_LAST_PLAYER = 1;
+	// 次のプレーヤーを参照するための値です
 	private static final int SHIFT_NEXT_PLAYER = 1;
 	/*****************************************
 		メンバ変数
@@ -70,7 +76,7 @@ public class Master {
 	public void startGame(){
 		System.out.println(MESSAGE_START_GAME);
 		//プレイヤーの人数を確認しながらゲームを進めます
-		for(int playCount = START_INDEX; mPlayers.size() < 	NUMBER_OF_LAST_PLAYER; playCount++){
+		for(int playCount = START_INDEX; mPlayers.size() > 	NUMBER_OF_LAST_PLAYER; playCount++){
 			// 順にプレイヤーを指名するためのインデックスです
 			int playerIndex = playCount % mPlayers.size();
 			// 順に隣のプレイヤーを指名するためのインデックスです
@@ -84,7 +90,6 @@ public class Master {
 		}
 		// プレーヤーが一人になったらゲーム終了メッセージを表示させる
 		System.out.println(MESSAGE_END_GAME);
-		
 	}
 	/*****************************************
 		メソッド (上がりを宣言する)
@@ -118,7 +123,9 @@ public class Master {
 		mPlayers.remove(mPlayers.indexOf(player));
 		// 残り人数が1人になった時は敗者として表示する
 		if(mPlayers.size() == NUMBER_OF_LAST_PLAYER){
+			// 敗者としてプレーヤーを設定します
 			Player loser = (Player)mPlayers.get(START_INDEX);
+			// 設定した敗者を表示します
 			System.out.printf(FORMAT_OUTPUT_LOSER, loser.toString());
 		}
 	}

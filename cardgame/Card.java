@@ -32,8 +32,7 @@ public class Card {
 	public static final String CHAR_SUIT_HEART = "H";
 
 	// カードの数字 1 に対応する値です
-	/*** 1, 10, 11, 12, 13 の表示に関わる設定です ***/
-	private static final int CARD_NUMBER_ONE = 1; 
+	public static final int CARD_NUMBER_ONE = 1; 
 	// カードの数字 10 に対応する値です
 	private static final int CARD_NUMBER_TEN = 10; 
 	// カードの数字 11 に対応する値です
@@ -114,19 +113,19 @@ public class Card {
 			// ダイヤの場合の設定を行います
 			case SUIT_DIAMOND :
 				// ダイヤを示す文字を設定します
-				string.append(CHAR_SUIT_SPADE);
+				string.append(CHAR_SUIT_DIAMOND);
 				// 処理を抜けます
 				break;
 			// クラブの場合の設定を行います
 			case SUIT_CLUB :
 				// クラブを示す文字を設定します
-				string.append(CHAR_SUIT_SPADE);
+				string.append(CHAR_SUIT_CLUB);
 				// 処理を抜けます
 				break;
 			// ハートの場合の設定を行います
 			case SUIT_HEART :
 				// ハートを示す文字を設定します
-				string.append(CHAR_SUIT_SPADE);
+				string.append(CHAR_SUIT_HEART);
 				// 処理を抜けます
 				break;
 			// その他の場合の設定を行います
